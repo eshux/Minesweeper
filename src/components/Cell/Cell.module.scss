@@ -1,0 +1,79 @@
+$no1: blue;
+$no2: green;
+$no3: red;
+$no4: darkblue;
+$no5: darkred;
+$no6: turquoise;
+$no7: black;
+$no8: gray;
+$bg: lightgray;
+$border: white;
+$border-active: rgb(170, 170, 170);
+$bg-active: rgb(192, 192, 192);
+
+.cell {
+    padding: 5px;
+    height: 20px;
+    width: 20px;
+    background-color: $bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: transparent;
+    border-color: $border;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.activeCell {
+    border: 1px solid $border-active;
+    background-color: $bg-active;
+    color: black;
+}
+
+.flaggedCell {
+    background-image: url('https://image.flaticon.com/icons/png/512/395/395841.png');
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+[id='0'].activeCell{
+    color: transparent;
+}
+
+[id='1'].activeCell{
+    color: $no1;
+}
+
+[id='2'].activeCell{
+    color: $no2;
+}
+
+[id='3'].activeCell{
+    color: $no3;
+}
+
+[id='4'].activeCell{
+    color: $no4;
+}
+
+[id='5'].activeCell{
+    color: $no5;
+}
+
+[id='6'].activeCell{
+    color: $no6;
+}
+
+[id='7'].activeCell{
+    color: $no7;
+}
+
+[id='8'].activeCell{
+    color: $no8;
+}
