@@ -6,15 +6,16 @@ $no5: darkred;
 $no6: turquoise;
 $no7: black;
 $no8: gray;
-$bg: lightgray;
-$border: white;
-$border-active: rgb(170, 170, 170);
-$bg-active: rgb(192, 192, 192);
+$bg: rgb(255, 224, 123);
+$border-light: rgb(255, 249, 169);
+$border-dark:rgb(223, 191, 85);
+$border-active: rgb(207, 198, 157);
+$bg-active: rgb(228, 218, 185);
 
 .cell {
     padding: 5px;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     background-color: $bg;
     display: flex;
     justify-content: center;
@@ -22,11 +23,23 @@ $bg-active: rgb(192, 192, 192);
     font-size: 12px;
     font-weight: 700;
     color: transparent;
-    border-color: $border;
+    border: 2px solid $border-light;
+    border-right-color: $border-dark;
+    border-bottom-color: $border-dark;
 
     &:focus {
         outline: none;
     }
+}
+
+.hard.cell {
+    height: 25px;
+    width: 25px;
+}
+
+.medium.cell {
+    height: 28px;
+    width: 28px;
 }
 
 .activeCell {
@@ -36,10 +49,30 @@ $bg-active: rgb(192, 192, 192);
 }
 
 .flaggedCell {
-    background-image: url('https://image.flaticon.com/icons/png/512/395/395841.png');
-    background-size: 15px;
+    background-image: url('../../assets/flag.png');
+    background-size: 16px;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.rightGuess {
+    position: relative;
+}
+
+.rightGuess:before, .rightGuess:after {
+    position: absolute;
+    content: ' ';
+    height: 100%;
+    width: 1px;
+    background-color:red;
+}
+
+.rightGuess:before {
+    transform: rotate(45deg);
+}
+
+.rightGuess:after {
+    transform: rotate(-45deg);
 }
 
 [id='0'].activeCell{
@@ -76,4 +109,37 @@ $bg-active: rgb(192, 192, 192);
 
 [id='8'].activeCell{
     color: $no8;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    .medium.cell {
+        height: 25px;
+        width: 25px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .medium.cell {
+        height: 22px;
+        width: 22px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+
+    .hard.cell {
+        height: 22px;
+        width: 22px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .hard.cell {
+        height: 20px;
+        width: 20px;
+    }
 }

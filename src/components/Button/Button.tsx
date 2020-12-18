@@ -6,11 +6,10 @@ type Props = {
   text?: string;
 };
 
-const Button: FC<Props> = ({ onClick, text, children }) => {
+const Button: FC<Props> = ({ onClick, text }) => {
   return (
     <button className={style.button} type="button" onClick={onClick}>
       {text}
-      {children}
     </button>
   );
 };

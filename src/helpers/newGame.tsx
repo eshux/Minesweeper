@@ -1,13 +1,7 @@
 /* eslint-disable no-param-reassign */
-const lodash = require('lodash');
+import { Data } from '../types/types';
 
-type Data = [
-  {
-    num: number | string;
-    active: boolean;
-    flag: boolean;
-  }[]
-];
+const lodash = require('lodash');
 
 const addBombs = (obj: Data, count: number) => {
   let bombsAdded = 0;
@@ -47,6 +41,7 @@ const addNumbers = (obj2: Data, setData: (obj1: Data) => void) => {
             obj[i - 1][x].num += 1;
           }
         }
+
         if (i + 1 < obj.length) {
           if (x - 1 >= 0 && obj[i + 1][x - 1].num !== bomb) {
             obj[i + 1][x - 1].num += 1;
@@ -58,6 +53,7 @@ const addNumbers = (obj2: Data, setData: (obj1: Data) => void) => {
             obj[i + 1][x].num += 1;
           }
         }
+
         if (x - 1 >= 0 && obj[i][x - 1].num !== bomb) {
           obj[i][x - 1].num += 1;
         }
@@ -74,9 +70,11 @@ const addNumbers = (obj2: Data, setData: (obj1: Data) => void) => {
 
 export const newGame = (difficulty: number, setData: (obj: Data) => void) => {
   const row = [];
+
   for (let i = 0; i < difficulty * difficulty; i++) {
     row.push({ num: 0, active: false, flag: false });
   }
+  
   const field = lodash.chunk(row, difficulty);
 
   if (difficulty === 9) {

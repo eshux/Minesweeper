@@ -1,12 +1,6 @@
-const lodash = require('lodash');
+import { Data } from '../types/types';
 
-type Data = [
-  {
-    num: number | string;
-    active: boolean;
-    flag: boolean;
-  }[]
-];
+const lodash = require('lodash');
 
 export const checkEmpty = (object: Data, setData: (obj1: Data) => void) => {
   const obj = lodash.cloneDeep(object);
@@ -25,12 +19,10 @@ export const checkEmpty = (object: Data, setData: (obj1: Data) => void) => {
             obj[i - 1][x - 1].active = true;
             g = 1;
           }
-
           if (x + 1 < obj[i].length && !obj[i - 1][x + 1].active) {
             obj[i - 1][x + 1].active = true;
             g = 1;
           }
-
           if (!obj[i - 1][x].active) {
             obj[i - 1][x].active = true;
           }
@@ -42,12 +34,10 @@ export const checkEmpty = (object: Data, setData: (obj1: Data) => void) => {
             obj[i + 1][x - 1].active = true;
             g = 1;
           }
-
           if (x + 1 < obj[i].length && !obj[i + 1][x + 1].active) {
             obj[i + 1][x + 1].active = true;
             g = 1;
           }
-
           if (!obj[i + 1][x].active) {
             obj[i + 1][x].active = true;
           }
@@ -57,7 +47,6 @@ export const checkEmpty = (object: Data, setData: (obj1: Data) => void) => {
         if (x - 1 >= 0 && !obj[i][x - 1].active) {
           obj[i][x - 1].active = true;
         }
-
         if (x + 1 < obj[i].length && !obj[i][x + 1].active) {
           obj[i][x + 1].active = true;
         }

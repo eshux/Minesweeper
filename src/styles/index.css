@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.margin--0 {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.bg {
+    height: 100vh;
+    width: 100%;
+    background-image:url('../assets/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.game-wrapper {
+    height: 90vh;
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* scrollBar */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #c0c0c0; 
+  }
+
+::-webkit-scrollbar-thumb {
+    background: #555; 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #888; 
+}

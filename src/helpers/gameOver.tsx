@@ -1,32 +1,26 @@
 /* eslint-disable no-param-reassign */
-export type Data = [
-  {
-    num: number | string;
-    active: boolean;
-    flag: boolean;
-  }[]
-];
+import { Data } from '../types/types';
 
 export const gameOver = (obj: Data) => {
-  obj.map(
-    (item) => {
-      item.map((it) => {
-        if (typeof it.num === typeof 'bomb') {
-          it.active = true;
-        }
-        return it;
-      });
-      return item;
-    }
-  );
+  obj.map((item) => {
+    item.map((it) => {
+      if (typeof it.num === 'string') {
+        it.active = true;
+      }
+      return it;
+    });
+    return item;
+  });
 };
 
 export const checkWinner = (
   obj: Data,
   difficulty: number,
-  setWin: (x: boolean) => void
+  setWin: (x: boolean) => void,
+  showInput:(x: boolean) => void
 ) => {
   let count = 0;
+
   obj.forEach((item) => {
     item.forEach((it) => {
       if (it.active === false) {
@@ -34,13 +28,17 @@ export const checkWinner = (
       }
     });
   });
+  
   if (difficulty === 9 && count === 10) {
     setWin(true);
+    showInput(true);
   }
   if (difficulty === 16 && count === 40) {
     setWin(true);
+    showInput(true);
   }
   if (difficulty === 23 && count === 99) {
     setWin(true);
+    showInput(true);
   }
 };

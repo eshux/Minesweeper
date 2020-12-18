@@ -1,0 +1,78 @@
+$border-light: rgb(212, 203, 164);
+$border-dark:rgb(129, 121, 86);
+
+.wrapper {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid $border-light;
+    border-right-color: $border-dark;
+    border-bottom-color: $border-dark;
+    z-index: 2;
+    left: 20px;
+    max-height: 100%;
+}
+
+.grid {
+    display: flex;
+    user-select: none;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 400px) {
+
+    [id='9'].wrapper {
+        left: 0;
+        max-height: 95%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    [id='16'].wrapper {
+        left: 0;
+        max-height: 90%;
+    }
+
+    [id='16'].wrapper > .grid{
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    [id='16'].wrapper > .grid{
+        width: 280px;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+
+    [id='23'].wrapper {
+        left: 0;
+        max-height: 95%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+
+    [id='23'].wrapper > .grid{
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+
+    [id='23'].wrapper > .grid{
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    [id='23'].wrapper > .grid{
+        width: 280px;
+    }
+}
