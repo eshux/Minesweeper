@@ -2,7 +2,7 @@ import { Data } from '../types/types';
 
 const lodash = require('lodash');
 
-export const checkEmpty = (object: Data, setData: (obj1: Data) => void) => {
+export const checkEmpty = (object: Data) => {
   const obj = lodash.cloneDeep(object);
   let g = 0;
   let i = 0;
@@ -63,5 +63,5 @@ export const checkEmpty = (object: Data, setData: (obj1: Data) => void) => {
     }
   }
 
-  setData(obj);
+  return obj;
 };

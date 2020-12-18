@@ -18,7 +18,7 @@ const addBombs = (obj: Data, count: number) => {
   }
 };
 
-const addNumbers = (obj2: Data, setData: (obj1: Data) => void) => {
+export const addNumbers = (obj2: Data) => {
   const obj = lodash.cloneDeep(obj2);
   let i = 0;
   const bomb = '💣';
@@ -65,10 +65,10 @@ const addNumbers = (obj2: Data, setData: (obj1: Data) => void) => {
     }
     i += 1;
   }
-  setData(obj);
+  return obj;
 };
 
-export const newGame = (difficulty: number, setData: (obj: Data) => void) => {
+export const newGame = (difficulty: number) => {
   const row = [];
 
   for (let i = 0; i < difficulty * difficulty; i++) {
@@ -85,5 +85,6 @@ export const newGame = (difficulty: number, setData: (obj: Data) => void) => {
     addBombs(field, 99);
   }
 
-  addNumbers(field, setData);
+  const newField = addNumbers(field);
+  return newField;
 };

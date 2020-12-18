@@ -30,6 +30,12 @@ $bg-active: rgb(228, 218, 185);
     &:focus {
         outline: none;
     }
+
+    &:active {
+        border: 2px solid $border-dark;
+        border-right-color: $border-light;
+        border-bottom-color: $border-light;
+    }
 }
 
 .hard.cell {
@@ -46,6 +52,10 @@ $bg-active: rgb(228, 218, 185);
     border: 1px solid $border-active;
     background-color: $bg-active;
     color: black;
+
+    &:active {
+        border: 1px solid $border-active;
+    }
 }
 
 .flaggedCell {

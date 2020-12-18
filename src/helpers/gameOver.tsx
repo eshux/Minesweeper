@@ -13,12 +13,7 @@ export const gameOver = (obj: Data) => {
   });
 };
 
-export const checkWinner = (
-  obj: Data,
-  difficulty: number,
-  setWin: (x: boolean) => void,
-  showInput:(x: boolean) => void
-) => {
+export const checkWinner = (obj: Data, difficulty: number) => {
   let count = 0;
 
   obj.forEach((item) => {
@@ -28,17 +23,13 @@ export const checkWinner = (
       }
     });
   });
-  
-  if (difficulty === 9 && count === 10) {
-    setWin(true);
-    showInput(true);
+
+  if (
+    (difficulty === 9 && count === 10) ||
+    (difficulty === 16 && count === 40) ||
+    (difficulty === 23 && count === 99)
+  ) {
+    return true;
   }
-  if (difficulty === 16 && count === 40) {
-    setWin(true);
-    showInput(true);
-  }
-  if (difficulty === 23 && count === 99) {
-    setWin(true);
-    showInput(true);
-  }
+  return false;
 };

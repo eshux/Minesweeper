@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import style from './ScoreBoard.module.scss';
 import Button from '../Button/Button';

@@ -7,7 +7,7 @@ import Cell from '../Cell/Cell';
 import { newGame } from '../../helpers/newGame';
 import { checkEmpty } from '../../helpers/checkEmpty';
 import { checkWinner, gameOver } from '../../helpers/gameOver';
-import { bombCount } from '../../helpers/bombCount';
+import { bombCounter } from '../../helpers/bombCounter';
 import Header from '../Header/Header';
 import Input from '../Input/Input';
 import Title from '../Title/Title';
@@ -65,7 +65,7 @@ const Grid: FC = () => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      bombCount(data!, difficulty, over, setCounter, winner);
+      setCounter(bombCounter(data!, difficulty, over, winner));
     }
   }, [data]);
 
@@ -79,9 +79,11 @@ const Grid: FC = () => {
       setOver(true);
     }
 
-    checkEmpty(newData, setData);
-    checkWinner(newData, difficulty, setWinner, setShowInput);
-    winner && setShowInput(true);
+    setData(checkEmpty(newData));
+    if (checkWinner(newData, difficulty)) {
+      setWinner(true);
+      setShowInput(true);
+    }
     timer < 0 && setTimer(0);
   };
 
@@ -101,7 +103,7 @@ const Grid: FC = () => {
 
 
   const resetHandler = () => {
-    newGame(difficulty, setData);
+    setData(newGame(difficulty));
     setWinner(false);
     setOver(false);
     setTimer(-1);

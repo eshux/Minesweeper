@@ -1,10 +1,10 @@
 import { Data } from '../types/types';
 
-export const bombCount = (
+export const bombCounter = (
   obj: Data,
   difficulty: number,
   over: boolean,
-  setCounter: (x: number) => void,
+  // setCounter: (x: number) => void,
   win: boolean
 ) => {
   let c = 0;
@@ -26,14 +26,14 @@ export const bombCount = (
     });
   });
 
-  if (difficulty === 9) {
-    setCounter(10 - c);
-  } else if (difficulty === 16) {
-    setCounter(40 - c);
-  } else if (difficulty === 23) {
-    setCounter(99 - c);
+  if (win) {
+    return 0;
   }
-
-  win && setCounter(0);
-  c = 0;
+  if (difficulty === 9) {
+    return 10 - c;
+  }
+  if (difficulty === 16) {
+    return 40 - c;
+  }
+  return 99 - c;
 };
